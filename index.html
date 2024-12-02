@@ -4,7 +4,7 @@
 body {
     background-color: #090909;
     color: #d6dcdc;
-    font-family: Montserrat, Arial;
+    font-family: inherit;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -132,7 +132,25 @@ const questions = [
         question: "What is the correct term for 20,000Hz?",
         options: ["20dB", "20kHz", "20kz", "20,000Khz"],
         correct: 1,
-        explanation: "Hz (Hertz) is a measure of frequencies under 999 cycles per second. Frequencies over 1,000 cycles per second are referred to as kHz (Kilohertz). 500Hz, 1.2kHz (1,200Hz), 80Hz, 12kHz (12,000Hz)."
+        explanation: "Hz (Hertz) is a measure of frequency vibrations up to 1,000 cycles per second. Frequency vibrations over 1,000 cycles per second are referred to as kHz (Kilohertz). 500Hz, 1.2kHz (1,200Hz), 80Hz, 12kHz (12,000Hz)."
+    },
+    {
+        question: "What is the average frequency range of human hearing?",
+        options: ["250Hz - 12kHz", "5Hz - 48kHz", "75Hz - 10kHz", "20Hz - 20kHz"],
+        correct: 3,
+        explanation: "The average frequency range of human hearing is 20Hz to 20kHz. As we get older, our frequency hearing range can reduce to about 16kHz. Fun fact: whales communicate at  90kHz, which is so high in frequency that humans cannot hear it."
+    },
+    {
+        question: "What does the term 'Attenuate' mean?",
+        options: ["Lower in volume and force", "Amplified in volume and force", "Increasing in speed", "Slowing down in speed"],
+        correct: 0,
+        explanation: "When we attenuate a sound, we are decreasing it's volume and force."
+    },
+    {
+        question: "What does it mean to remix a song 'on spec'?",
+        options: ["The song is completed to the original owner's satisfaction", "The song is mixed and mastered to sound best on all devices", "The remixer is not guarenteed to get paid", "The remixer is paid for the amount of production time"],
+        correct: 2,
+        explanation: "Destructive editing changes the original file."
     },
     {
         question: "Phase shift and phase roation are the same thing.",
@@ -155,6 +173,18 @@ const questions = [
     {
         question: "If editing is referred to as 'Destructive', what does this mean?",
         options: ["The editing makes it sound worse", "The editing introduces unwanted artifacts and distortion to the signal", "The editing makes permanent changes to the audio file", "The editing will break your gear"],
+        correct: 2,
+        explanation: "Destructive editing changes the original file."
+    },
+    {
+        question: "What does it mean to remix a song 'on spec'?",
+        options: ["The song is completed to the original owner's satisfaction", "The song is mixed and mastered to sound best on all devices", "The remixer is not guarenteed to get paid", "The remixer is paid for the amount of production time"],
+        correct: 2,
+        explanation: "Destructive editing changes the original file."
+    },
+    {
+        question: "",
+        options: ["The song is completed to the original owner's satisfaction", "The song is mixed and mastered to sound best on all devices", "The remixer is not guarenteed to get paid", "The remixer is paid for the amount of production time"],
         correct: 2,
         explanation: "Destructive editing changes the original file."
     },
