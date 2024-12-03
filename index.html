@@ -1,10 +1,12 @@
-<html><head><base href="." /><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' cdn.jsdelivr.net"><title>Music Production Quiz</title>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<!DOCTYPE html>
+<html>
+<head><base href="." /><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' cdn.jsdelivr.net"><title>Music Production Quiz</title>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script><link href='https://fonts.googleapis.com/css?family=Manrope' rel='stylesheet'>
 <style>
 body {
     background-color: #090909;
     color: #d6dcdc;
-    font-family: montserrat, san serif;
+    font-family: 'Manrope', Arial;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -261,7 +263,7 @@ const questions = [
         explanation: "The term, 'bounce' refers to exporting or consolidating a track or project into a single audio file. For example, bouncing a vocal recording for importing to a different project file."
     },
     {
-        question: "What is 'Side-chaining' commonly used for?",
+        question: "What is 'side-chaining' commonly used for?",
         options: ["To limit a signal's peak", "To remove low frequencies", "To add depth to a stereo signal", "To create a pumping effect by linking one track's dynamics to another"],
         correct: 3,
         explanation: "Side-chaining refers to linking one tracks dyamics to a different track to affect it's volume. This is commonly used in electronic music to cut the sound of bass elements in order to create space for drums element to pop through in the mix."
@@ -270,7 +272,7 @@ const questions = [
         question: "What does 'bit-depth' determine in a digital audio?",
         options: ["The tempo of a track", "The number of channels in a recording", "The dynamic range or detail of the audio", "The frequency range of the audio"],
         correct: 2,
-        explanation: "Bit-depth refers to the dynamic range of a signal. Lowering the bit-depth creates a squashed effect as the dynamic range decreases. 1 bit squashes the signal to an on-off effect."
+        explanation: "Bit-depth refers to the dynamic range of a signal. Lowering the bit-depth creates a squashed effect as the dynamic range decreases. 1 bit squashes the signal to an on-off switch effect."
     },
     {
         question: "What is the Nyquist frequency?",
@@ -373,6 +375,102 @@ const questions = [
         options: ["Makes the plugins effect stronger", "Changes the tone of the effect", "Controls the mix between the process and unprocessed signal", "Adds a duplicate, processed signal"],
         correct: 2,
         explanation: "Wet/dry refers to the mix between the processed, and unprocessed signal. 0% wet is unprocess, 100% wet is fully processed signal."
+    },
+    {
+        question: "Faster attacks on compressors usually makes the sound more ____.",
+        options: ["Pushed back", "Upfront", "Squashed", "Dynamic"],
+        correct: 1,
+        explanation: "Having a faster attack on a compressor makes a sound appear more upfront in the mix."
+    },
+    {
+        question: "This section of a song covers the story, and typically explains what the song is about.",
+        options: ["Intro", "Chorus", "Verse", "Breakdown"],
+        correct: 2,
+        explanation: "The verse is the section of a song where the singer covers the story or idea."
+    },
+    {
+        question: "This section of a song is known as the climax or conflict.",
+        options: ["Intro", "Chorus", "Bridge", "Breakdown"],
+        correct: 1,
+        explanation: "The chorus is known as the climax or conflict, as it is the most powerful section that provides release, or the highest tension of the song."
+    },
+    {
+        question: "This section of a song is typically only heard once, with a different melody and/or chord progression, and as a slight break in energy before the final chorus.",
+        options: ["Intro", "Chorus", "Bridge", "Verse"],
+        correct: 2,
+        explanation: "The bridge is a 'pallet cleanser' to the listener, as it is usually heard once, with a new melody and/or chord progression before bringing the listener back into the final chorus of the song."
+    },
+    {
+        question: "This section of a song is typically a short 4-8 bar break between a chorus and a following verse to allow the listener to process the story so far.",
+        options: ["Breakdown", "Verse", "Interlude", "Pre-Chorus"],
+        correct: 2,
+        explanation: "The interlude acts as a short break after a chorus before the 2nd verse comes in, providing enough time for the listener to process the context from the previous chorus."
+    },
+    {
+        question: "What are the important parts of a melodic structure?",
+        options: ["Memorability", "Familiarity", "Sing-ability", "Simplicity", "All of the above"],
+        correct: 4,
+        explanation: "All of them! Memorability, Familiarity, Sing-ability, and simplicity are all important factors to a great melodic structure."
+    },
+    {
+        question: "What is a 'motif' in music composition?",
+        options: ["A recurring musical idea or theme", "A type of chord progression", "A long series of notes played in succession", "A random melody used for improvisation"],
+        correct: 0,
+        explanation: "A motif is a recurring musical idea or theme to help listeners become familiarized with the melodic structure."
+    },
+    {
+        question: "What is 'counterpoint' in music theory?",
+        options: ["The balance between loud and soft dynamics", "The art of combining independent melodies that harmonize with each other", "The use of syncopated rhythms in a melody", "The arrangement of chords in a progression"],
+        correct: 1,
+        explanation: "Counterpoint is combining two separate melodies or ideas that harmonize with each other."
+    },
+    {
+        question: "In melody writing, what is 'range'?",
+        options: ["The length of the melody", "The highest and lowest notes in the melody", "The speed of the melody", "The harmony accompanying the melody"],
+        correct: 1,
+        explanation: "Range is the highest and lowest notes in the melody."
+    },
+    {
+        question: "What is a chord progression?",
+        options: ["A sequence of chords played in a specific order", "A melody that repeats", "A random arrangement of notes", "A set of rhythms used in a song"],
+        correct: 0,
+        explanation: "A chord progression is a sequence of chords played in a specific order."
+    },
+    {
+        question: "What is a 'tonic' chord in a key?",
+        options: ["The chord built on the second scale degree", "The chord built on the root note of the key", "The chord that resolves tension", "The most dissonant chord in the key"],
+        correct: 1,
+        explanation: "The tonic chord is the chord built on the root (first) note of the key scale."
+    },
+    {
+        question: "What are 'block' chords?",
+        options: ["Chords with all keys playing at different interval", "Chords with keys playing very short notes", "Chords with all keys in the shape of a block in the MIDI view", "Chords with all keys playing at the same time"],
+        correct: 3,
+        explanation: "Block chords are chords with all keys playing simultaneously."
+    },
+    {
+        question: "What does 'inversion' mean in chords?",
+        options: ["Changing the octave of the notes so the root note is not the lowest note", "Adding extra notes to a chord", "Switching a major chord to a minor chord, or vise versa", "Reversing the direction of a chord"],
+        correct: 0,
+        explanation: "Inversion in chords refers to changing the octave of notes so that the root note is not the lowest note. This can be referred to as 'voice-smoothing' a chord."
+    },
+    {
+        question: "What is 'arpeggiation'?",
+        options: ["Playing the notes of a chord in sequence, rather than together", "Repeating a melody in a higher octave", "Adding harmony to a melody", "Changing the tempo of a track"],
+        correct: 0,
+        explanation: "Arpeggiation refers to having the notes of a chord play one at a time, rather than all together."
+    },
+    {
+        question: "What is a 'passing tone'?",
+        options: ["A tone played to resolve dissonance", "A note that repeats throughout the piece", "A non-chord tone used to have a smooth transition from one chord to another", "The loudest tone in a melody"],
+        correct: 2,
+        explanation: "A passing tone is a non-chord note played before a new chord is played. Im just 'passing' through!"
+    },
+    {
+        question: "What is a 'neighbor tone'?",
+        options: ["A tone played to add dissonance", "A note that repeats throughout the piece", "A tone that resonates at the end of the track", "A non-chord tone that moves stepwise from a chord tone to an adjacent note then returns to the original chord tone"],
+        correct: 3,
+        explanation: "A neighbor tone is a note played adjacent to its original chord tone, then returns back to its original chord tone in the next chord. Im just visiting my 'neighbor'!"
     }
 ];
 
@@ -458,12 +556,12 @@ function showFinalScore() {
     let message = '';
 
     if (percentage === 100) {
-        message = "🎉 Absolutely Outstanding! You're a Music Industry Pro! 🎉";
+        message = "🎉 Absolutely Outstanding! You're a Music Professional! 🥳";
         triggerConfetti();
     } else if (percentage >= 80) {
-        message = "Great job! Almost perfect - keep pushing to achieve that 100%!";
+        message = "Great job! Keep pushing to achieve that 100%! 🤓";
     } else {
-        message = "Keep learning and try again! Practice makes perfect in the music industry.";
+        message = "Keep learning and try again! Practice makes perfect in the music industry! 🧐";
     }
 
     questionElement.innerHTML = `
