@@ -123,12 +123,6 @@ const questions = [
         explanation: "Unity gain is 0 dB, which means the output signal is exactly the same level as the input signal - no amplification or attenuation. This is important for maintaining proper signal levels through an audio chain."
     },
     {
-        question: "What type of record deal typically offers the highest royalty rate?",
-        options: ["360 Deal", "Distribution Deal", "Traditional Record Deal", "Production Deal"],
-        correct: 1,
-        explanation: "Distribution deals typically offer the highest royalty rates because the artist maintains ownership of their masters and simply pays for distribution services. Other deal types often involve giving up more rights or revenue streams in exchange for larger advances or marketing support."
-    },
-    {
         question: "What is the correct term for 20,000Hz?",
         options: ["20dB", "20kHz", "20kz", "20,000Khz"],
         correct: 1,
@@ -147,13 +141,7 @@ const questions = [
         explanation: "When we attenuate a sound, we are decreasing it's volume and force."
     },
     {
-        question: "What does it mean to remix a song 'on spec'?",
-        options: ["The song is completed to the original owner's satisfaction", "The song is mixed and mastered to sound best on all devices", "The remixer is not guarenteed to get paid", "The remixer is paid for the amount of production time"],
-        correct: 2,
-        explanation: "Destructive editing changes the original file."
-    },
-    {
-        question: "Phase shift and phase roation are the same thing.",
+        question: "Phase shift and phase rotation are the same thing.",
         options: ["True","False"],
         correct: 1,
         explanation: "Phase shifts occur in the time domain. In a DAW, this could be represented by the entirety of the waveform moving toward the left or right, or up and down the frequency range. Phase rotation relates to the peaks and troughs of a waveform. For example, inverting the polarity of a signal by 180-degrees."
@@ -177,22 +165,214 @@ const questions = [
         explanation: "Destructive editing changes the original file."
     },
     {
-        question: "What does it mean to remix a song 'on spec'?",
-        options: ["The song is completed to the original owner's satisfaction", "The song is mixed and mastered to sound best on all devices", "The remixer is not guarenteed to get paid", "The remixer is paid for the amount of production time"],
-        correct: 2,
-        explanation: "Destructive editing changes the original file."
+        question: "What does the 'Attack' parameter in an ADSR envelope control?",
+        options: ["The initial rise of the sound from silence to peak level", "The level of the sustained sound", "The speed at which the sound fades out", "The rate at which the sound decays after the sustain"],
+        correct: 0,
+        explanation: "The 'Attack' parameter controls the initial rise of the sound from silence to peak level. A fast attack is great for plucks, while a slow attack is essential for pads."
     },
     {
-        question: "",
-        options: ["The song is completed to the original owner's satisfaction", "The song is mixed and mastered to sound best on all devices", "The remixer is not guarenteed to get paid", "The remixer is paid for the amount of production time"],
+        question: "What does the 'Release' parameter in an ADSR envelope control?",
+        options: ["The peak level of the sound", "The amount of filtering applied to the sound", "How long it takes for the sound to fade to silence after the key is released", "The pitch modulation of the sound"],
         correct: 2,
-        explanation: "Destructive editing changes the original file."
+        explanation: "The 'Release' parameter controls how long it takes for the sound to fade to silence after the key is released."
     },
     {
-        question: "In a typical record deal, what percentage of recording costs does the artist usually have to recoup?",
-        options: ["50%", "75%", "100%", "125%"],
+        question: "Which type of filter allows low frequencies to pass through while attenuating high frequencies?",
+        options: ["High-pass", "Low-pass", "Band-pass", "Notch filter"],
+        correct: 1,
+        explanation: "A low-pass filter allows low frequencies to pass through, while cutting high frequencies."
+    },
+    {
+        question: "What does a resonance knob typically control on a filter?",
+        options: ["The slope of the filter cutoff", "The frequency range the filter affects", "The boost around the cutoff frequency", "The amplitude of the input signal"],
         correct: 2,
-        explanation: "In most traditional record deals, artists must recoup 100% of their recording costs before they start receiving royalties. This means that all expenses advanced by the label for recording must be paid back through the artist's share of revenues."
+        explanation: "The resonance knob boosts at the cutoff frequency. A higher resonance adds more of a profound filtering affect for the filter."
+    },
+    {
+        question: "Frequencies below 20Hz are typically referred to as what?",
+        options: ["Ultrasonic", "Subsonic", "Supersonic", "Bass"],
+        correct: 1,
+        explanation: "Frequencie below 20Hz are typically referred to as subsonic, as they are more 'felt' than heard."
+    },
+    {
+        question: "What is the purpose of a compressor in music production?",
+        options: ["To increase the tempo of the track", "To balance the dynamic range of a signal", "To add distortion to a signal", "To add reverb to a signal"],
+        correct: 1,
+        explanation: "Compressors even the overall dynamic range of a signal by making quiet parts of the signal louder, and making the louder parts of the signal, quieter."
+    },
+    {
+        question: "In MIDI, what does 'velocity' refer to?",
+        options: ["The speed at which a note is released", "The pitch of the note", "The time signature of the track", "The volume or intensity of a note"],
+        correct: 3,
+        explanation: "Velocity in MIDI controls the volume or intensity a note is played."
+    },
+    {
+        question: "What does an exciter plugin do?",
+        options: ["Adds harmonic distortion to brighten a sound", "Removes unwanted low frequencies from a mix", "Compresses the signal for better dynamic control", "To add delay to create space in a mix"],
+        correct: 0,
+        explanation: "An exciter plugin, such as 'Fresh Air', adds upper harmonic distortion in the high frequencies of the signal to brighten sound."
+    },
+    {
+        question: "What is the primary function of a limiter?",
+        options: ["To apply reverb to a signal", "To ensure a signal does not exceed a set threshold", "To expand the dynamic range of a signal", "To add distortion to a signal"],
+        correct: 1,
+        explanation: "Limiters, like the famous ProL2, is an instant attack limiter with a fixed threshold, ensuring that the signal does not exceed the threshold."
+    },
+    {
+        question: "What kind of plugin would you typically use to reduce sibilance in vocals?",
+        options: ["Reverb", "EQ", "De-esser", "Chorus"],
+        correct: 2,
+        explanation: "To reduce sibilance in a vocal performance, which usually lies in the 6kHz range, you would use a De-esser plugin."
+    },
+    {
+        question: "Which plugin is commonly used to correct pitch in vocals?",
+        options: ["Compressor", "Autotune", "Saturator", "Phaser"],
+        correct: 1,
+        explanation: "An autotune plugin corrects pitch in a vocal recording."
+    },
+    {
+        question: "Which of the following best describes tape saturation?",
+        options: ["A delay effect that mimics analog tape machines", "A type of distortion that emulates the sound of overdriven analog tape", "A filter that removes high frequencies and adds noise for texture", "A reverb effect for vocal processing"],
+        correct: 1,
+        explanation: "Tape saturation is a type of distortion that emulates the sound of overdriven analog tape gear."
+    },
+    {
+        question: "What does saturation do in audio production?",
+        options: ["Adds upper harmonics above the fundamental note of the sound", "Cuts unwanted frequencies to clean up a mix", "Widens the stereo image of the sound", "Combines the sound with a sinewave to add grit to the signal"],
+        correct: 0,
+        explanation: "Saturation plugins adds upper harmonics to the sound above its fundamental note."
+    },
+    {
+        question: "What is the purpose of gain-staging?",
+        options: ["To apply reverb to individual tracks", "To automate volume changes over time", "To reduce the dynamic range of a signal", "To ensure optimal signal levels without introducing distortion or noise"],
+        correct: 2,
+        explanation: "Gain-staging is the process of monitoring levels throughout each entry and exit points of sends in the signal processing chain, to ensure the signal is not 'too hot' at any point."
+    }
+    {
+        question: "What does an imager plugin do?",
+        options: ["Alters the pitch of a track", "Adjusts the stereo width of a sound", "Increases the dynamic range of a mix", "Enhances the low-end frequencies"],
+        correct: 1,
+        explanation: "Imager plugins adjusts the stereo width of a sound. Most imager plugins control stereo width of frequncy bands."
+    },
+    {
+        question: "What does the term 'bouncing' mean in music production?",
+        options: ["Exporting a project or track into a single audio file", "Adding reverb to make a track bounce", "Automating volume changes", "Sampling a sound"],
+        correct: 0,
+        explanation: "The term, 'bounce' refers to exporting or consolidating a track or project into a single audio file. For example, bouncing a vocal recording for importing to a different project file."
+    },
+    {
+        question: "What is 'Side-chaining' commonly used for?",
+        options: ["To limit a signal's peak", "To remove low frequencies", "To add depth to a stereo signal", "To create a pumping effect by linking one track's dynamics to another"],
+        correct: 3,
+        explanation: "Side-chaining refers to linking one tracks dyamics to a different track to affect it's volume. This is commonly used in electronic music to cut the sound of bass elements in order to create space for drums element to pop through in the mix."
+    },
+    {
+        question: "What does 'bit-depth' determine in a digital audio?",
+        options: ["The tempo of a track", "The number of channels in a recording", "The dynamic range or detail of the audio", "The frequency range of the audio"],
+        correct: 2,
+        explanation: "Bit-depth refers to the dynamic range of a signal. Lowering the bit-depth creates a squashed effect as the dynamic range decreases. 1 bit squashes the signal to an on-off effect."
+    },
+    {
+        question: "What is the Nyquist frequency?",
+        options: ["The lowest frequency that can be heard by humans", "Half of the sampling rate, representing the highest frequency that can be accurately produced", "The speed at which an audio file plays", "The standard tuning frequency for instruments"],
+        correct: 1,
+        explanation: "Nyguist frequency refers to half of the sampling rate, which determines the highest frequency that can be produced in a session. Half of 44100Hz sampling rate is 22050Hz, which is the highest frequency range able to be produced in that session."
+    },
+    {
+        question: "What does 'latency' mean in the context of audio production?",
+        options: ["The delay caused by processing time in a digital system", "The reverberation time of a sound", "The speed of a track's tempo", "The loudness of a signal"],
+        correct: 0,
+        explanation: "Latency is the delay caused by the computer processing the sound before playback. A good latency sits at around 40ms. Lower latency requires a beefy CPU."
+    },
+    {
+        question: "What oscillator waveform contains only odd harmonics?",
+        options: ["Sine", "Saw", "Square", "Noise"],
+        correct: 2,
+        explanation: "A square wave consists of only odd harmonics."
+    },
+    {
+        question: "Which of the following has the greatest influence on the sounds timbre and character?",
+        options: ["Harmonics", "Modulation", "ADSR", "Pitch"],
+        correct: 0,
+        explanation: "Harmonics has the greatest influence on a sounds timbre and character."
+    },
+    {
+        question: "Which oscillator shape is best for sub bass?",
+        options: ["Saw", "Sine", "Square", "Noise"],
+        correct: 1,
+        explanation: "Sine wave is typically the best for sub bass, as it serves as a clean state for harmonics, distortion, and noise for a nice 'phatt' sub."
+    },
+    {
+        question: "Which oscillator shape sounds similar to a sine wave?",
+        options: ["Saw", "Square", "Triangle", "Noise"],
+        correct: 2,
+        explanation: "The triangle wave sounds similar to a sine wave."
+    },
+    {
+        question: "Which oscillator shape generates the most harmonics?",
+        options: ["Sine", "Square", "Triangle", "Saw"],
+        correct: 3,
+        explanation: "The saw wave generates the most harmonics."
+    },
+    {
+        question: "A band reject filter is a type of ____ filter.",
+        options: ["High-pass", "Low-pass", "Comb", "Notch"],
+        correct: 3,
+        explanation: "A band reject filter is a type of notch filter, as they both cut a specified band of frequencies."
+    },
+    {
+        question: "The 'D' in ADSR stands for ____.",
+        options: ["Deliver", "Decay", "Distance", "DAW"],
+        correct: 1,
+        explanation: "Attack - Decay - Sustain - Release."
+    },
+    {
+        question: "Inserts allows us to ____.",
+        options: ["Process sound directly onto the channel", "Record higher-quality audio", "Route signal to other channels", "Increase dynamic range"],
+        correct: 0,
+        explanation: "Inserts are a way to add an effect or processor to a track's signal path in line, or between the microphone preamplifier and the mix bus."
+    },
+    {
+        question: "Higher sample rates allows for greater dynamic range.",
+        options: ["True", "False"],
+        correct: 1,
+        explanation: "Bit-depth controls the dynamic range of the audio signal."
+    },
+    {
+        question: "____ allows us to split our signal and bridge it to an auxiliary or return channel.",
+        options: ["Inserts", "Sends", "Fader", "Bit-depth"],
+        correct: 1,
+        explanation: "Sends allows us to split our signal and bridge to auxiliary or return channel, often used to add effects such as reverb to a dry signal."
+    },
+    {
+        question: "What is sample rate measured in?",
+        options: ["Decibels", "kHz", "Volume", "Bits"],
+        correct: 1,
+        explanation: "Sample rate is measured in kHz, as it is measured in frequency range."
+    },
+    {
+        question: "What is an audio interface used for?",
+        options: ["Converting MIDI information to audio information as it goes into the computer", "Converting analog audio information to and from digital audio information as it enters and leaves the computer", "To increase audio bit-depth inside of the DAW", "To look really cool on the studio desk"],
+        correct: 1,
+        explanation: "Audio interfaces convert analog audio information, such as waveforms, into digital information for the computer to read. Speakers can't read 1's and 0's that comes from the computer, and computers can't read analog waveforms that comes from recording vocals, so audio infaces convert information for both to read. This process is called D/A (Ditigal to Analog) Conversion or A/D (Analog to Digital) Conversion."
+    },
+    {
+        question: "Which of the following is an example of the D/A (Digital to Analog) conversion process?",
+        options: ["Recording audio into the DAW from a microphone", "Recording MIDI into the arangement", "Sending audio from the DAW to monitor speakers"],
+        correct: 2,
+        explanation: "Sending audio from the DAW into monitor speakers is an example of D/A conversion, as the digital information would need to be changed to analog waves for the speakers to recreate the pressure waves of the sound."
+    },
+    {
+        question: "The 'Feedback' parameter on a delay controls the number of delays that happen in an amount of time.",
+        options: ["True", "False"],
+        correct: 0,
+        explanation: "Feedback refers to playing multiple copies of the delay overtop of itself. More feedback equals to more delay chops in an amount of time."
+    },
+    {
+        question: "What does the dry/wet knob do in most plugins?",
+        options: ["Makes the plugins effect stronger", "Changes the tone of the effect", "Controls the mix between the process and unprocessed signal", "Adds a duplicate, processed signal"],
+        correct: 2,
+        explanation: "Wet/dry refers to the mix between the processed, and unprocessed signal. 0% wet is unprocess, 100% wet is fully processed signal."
     }
 ];
 
