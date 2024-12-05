@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head><base href="." /><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' cdn.jsdelivr.net"><title>Music Production Quiz</title>
+<html><head><base href="." /><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' cdn.jsdelivr.net"><title>Music Production Quiz</title>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script><link href='https://fonts.googleapis.com/css?family=Manrope' rel='stylesheet'>
 <style>
 body {
@@ -24,12 +22,18 @@ body {
     max-width: 90%;
     position: relative;
     z-index: 1;
+    padding-top: 4rem;
 }
 
 .question {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     text-align: center;
+    position: relative;
+    z-index: 1;
+    width: 100%;
 }
 
 .options {
@@ -101,8 +105,116 @@ body {
 .next-btn:hover, .retake-btn:hover {
     background-color: #2e2e2e;
 }
+
+/* Add styles for both toggle buttons container */
+.toggle-container {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    z-index: 2;
+}
+
+/* Update random-toggle class to be more generic for both buttons */
+.toggle-btn {
+    background-color: #1e1e1e;
+    color: #d6dcdc;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.toggle-btn:hover {
+    background-color: #2e2e2e;
+}
+
+.toggle-btn .icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.toggle-btn.active .icon {
+    transform: rotate(180deg);
+}
+
+.toggle-btn.active {
+    border: 1px solid #ff4a00;
+    animation: pulseBorder 2s infinite;
+}
+
+@keyframes pulseBorder {
+    0% {
+        border-color: #ff4a00;
+        box-shadow: 0 0 0 0 rgba(255, 74, 0, 0.4);
+    }
+    70% {
+        border-color: #ff4a00;
+        box-shadow: 0 0 0 6px rgba(255, 74, 0, 0);
+    }
+    100% {
+        border-color: #ff4a00;
+        box-shadow: 0 0 0 0 rgba(255, 74, 0, 0);
+    }
+}
+
+/* Add progress circle styles */
+.progress-circle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    z-index: 2;
+}
+
+.progress-circle svg {
+    transform: rotate(-90deg);
+}
+
+.progress-circle-bg {
+    fill: none;
+    stroke: #1e1e1e;
+    stroke-width: 4;
+}
+
+.progress-circle-progress {
+    fill: none;
+    stroke: #4CAF50;
+    stroke-width: 4;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.3s ease;
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    color: #d6dcdc;
+}
 </style></head><body>
 <div class="quiz-container">
+    <div class="toggle-container">
+        <button class="toggle-btn random-toggle">
+            <span class="text">Random Order</span>
+        </button>
+        <button class="toggle-btn answer-random-toggle">
+            <span class="text">Random Answers</span>
+        </button>
+    </div>
+    <div class="progress-circle">
+        <svg width="40" height="40" viewBox="0 0 40 40">
+            <circle class="progress-circle-bg" cx="20" cy="20" r="16"></circle>
+            <circle class="progress-circle-progress" cx="20" cy="20" r="16"></circle>
+        </svg>
+        <div class="progress-text">0%</div>
+    </div>
     <div class="question" id="question"></div>
     <div class="options" id="options"></div>
     <div class="explanation" id="explanation"></div>
@@ -134,10 +246,10 @@ const questions = [
         question: "What is the average frequency range of human hearing?",
         options: ["250Hz - 12kHz", "5Hz - 48kHz", "75Hz - 10kHz", "20Hz - 20kHz"],
         correct: 3,
-        explanation: "The average frequency range of human hearing is 20Hz to 20kHz. As we get older, our frequency hearing range can reduce to about 16kHz. Fun fact: whales communicate at  90kHz, which is so high in frequency that humans cannot hear it."
+        explanation: "The average frequency range of human hearing is 20Hz to 20kHz. As we get older, our frequency hearing range can reduce to about 16kHz. Fun fact: whales communicate at 90kHz, which is so high in frequency that humans cannot hear it."
     },
     {
-        question: "What does the term 'Attenuate' mean?",
+        question: "What does the term 'attenuate' mean?",
         options: ["Lower in volume and force", "Amplified in volume and force", "Increasing in speed", "Slowing down in speed"],
         correct: 0,
         explanation: "When we attenuate a sound, we are decreasing it's volume and force."
@@ -152,7 +264,7 @@ const questions = [
         question: "What is the purpose of dithering?",
         options: ["Reduce the bit-depth of the signal", "Smooth out quantization errors during bit depth reduction", "Increase render quality", "Reduce aliasing in digital audio"],
         correct: 1,
-        explanation: "Dithering is used in digital audio to minimize the distortion that occurs wwhen reducing the bit depth of a signal. By aadding a small amount of noise, dithering helps to smooth out guantization errors, making the resulting audio sound more natural and reducing artifacts. In short, use dithering when rendering an audio as an mp3 file."
+        explanation: "Dithering is used in digital audio to minimize the distortion that occurs when reducing the bit depth of a signal. By adding a small amount of noise, dithering helps to smooth out guantization errors, making the resulting audio sound more natural and reducing artifacts. In short, use dithering when rendering an audio as an mp3 file."
     },
     {
         question: "Which of the following compressors has the quickest available attack and release settings?",
@@ -161,22 +273,28 @@ const questions = [
         explanation: "The 1176 FET compressor's attack and release can be as fast as 20 microseconds and 50ms. The compressor can react so fast to the input signal that it omits an audible distortion effect, making it a popular choice by audio engineers to add 'grit' to guitars and basses."
     },
     {
-        question: "If editing is referred to as 'Destructive', what does this mean?",
+        question: "If editing is referred to as 'destructive', what does this mean?",
         options: ["The editing makes it sound worse", "The editing introduces unwanted artifacts and distortion to the signal", "The editing makes permanent changes to the audio file", "The editing will break your gear"],
         correct: 2,
-        explanation: "Destructive editing changes the original file."
+        explanation: "Destructive editing changes the original file on the hard drive."
     },
     {
-        question: "What does the 'Attack' parameter in an ADSR envelope control?",
+        question: "What does the 'attack' parameter in an ADSR envelope control?",
         options: ["The initial rise of the sound from silence to peak level", "The level of the sustained sound", "The speed at which the sound fades out", "The rate at which the sound decays after the sustain"],
         correct: 0,
-        explanation: "The 'Attack' parameter controls the initial rise of the sound from silence to peak level. A fast attack is great for plucks, while a slow attack is essential for pads."
+        explanation: "The 'attack' parameter controls the initial rise of the sound from silence to peak level. A fast attack is great for plucks, while a slow attack is essential for pads."
     },
     {
-        question: "What does the 'Release' parameter in an ADSR envelope control?",
+        question: "What does the 'release' parameter in an ADSR envelope control?",
         options: ["The peak level of the sound", "The amount of filtering applied to the sound", "How long it takes for the sound to fade to silence after the key is released", "The pitch modulation of the sound"],
         correct: 2,
-        explanation: "The 'Release' parameter controls how long it takes for the sound to fade to silence after the key is released."
+        explanation: "The 'release' parameter controls how long it takes for the sound to fade to silence after the key is released."
+    },
+    {
+        question: "The 'D' in ADSR stands for ____.",
+        options: ["Deliver", "Decay", "Distance", "DAW"],
+        correct: 1,
+        explanation: "Attack - Decay - Sustain - Release."
     },
     {
         question: "Which type of filter allows low frequencies to pass through while attenuating high frequencies?",
@@ -323,12 +441,6 @@ const questions = [
         explanation: "A band reject filter is a type of notch filter, as they both cut a specified band of frequencies."
     },
     {
-        question: "The 'D' in ADSR stands for ____.",
-        options: ["Deliver", "Decay", "Distance", "DAW"],
-        correct: 1,
-        explanation: "Attack - Decay - Sustain - Release."
-    },
-    {
         question: "Inserts allows us to ____.",
         options: ["Process sound directly onto the channel", "Record higher-quality audio", "Route signal to other channels", "Increase dynamic range"],
         correct: 0,
@@ -344,7 +456,7 @@ const questions = [
         question: "____ allows us to split our signal and bridge it to an auxiliary or return channel.",
         options: ["Inserts", "Sends", "Fader", "Bit-depth"],
         correct: 1,
-        explanation: "Sends allows us to split our signal and bridge to auxiliary or return channel, often used to add effects such as reverb to a dry signal."
+        explanation: "Sends allows us to split our signal and bridge to auxiliary or return channel, often used to combine effects such as reverb to a dry signal."
     },
     {
         question: "What is sample rate measured in?",
@@ -365,7 +477,7 @@ const questions = [
         explanation: "Sending audio from the DAW into monitor speakers is an example of D/A conversion, as the digital information would need to be changed to analog waves for the speakers to recreate the pressure waves of the sound."
     },
     {
-        question: "The 'Feedback' parameter on a delay controls the number of delays that happen in an amount of time.",
+        question: "The 'feedback' parameter on a delay controls the number of delays that happen in an amount of time.",
         options: ["True", "False"],
         correct: 0,
         explanation: "Feedback refers to playing multiple copies of the delay overtop of itself. More feedback equals to more delay chops in an amount of time."
@@ -477,6 +589,9 @@ const questions = [
 let currentQuestion = 0;
 let score = 0;
 let questionAnswered = false;
+let isRandomMode = false;
+let isAnswerRandomMode = false;
+let questionOrder = [...Array(questions.length).keys()];
 
 const questionElement = document.getElementById('question');
 const optionsElement = document.getElementById('options');
@@ -507,46 +622,78 @@ function triggerConfetti() {
     }, 250);
 }
 
+function updateProgress() {
+    const progress = (currentQuestion / questions.length) * 100;
+    const progressCircle = document.querySelector('.progress-circle-progress');
+    const progressText = document.querySelector('.progress-text');
+    
+    const circumference = 2 * Math.PI * 16;
+    const offset = circumference - (progress / 100 * circumference);
+    
+    progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
+    progressCircle.style.strokeDashoffset = offset;
+    
+    progressText.textContent = `${Math.round(progress)}%`;
+}
+
 function loadQuestion() {
     questionAnswered = false;
-    const question = questions[currentQuestion];
+    const questionIndex = questionOrder[currentQuestion];
+    const question = questions[questionIndex];
     questionElement.textContent = question.question;
     optionsElement.innerHTML = '';
     explanationElement.style.display = 'none';
     explanationElement.textContent = '';
     
-    question.options.forEach((option, index) => {
+    // Create array of option indices
+    let optionOrder = [...Array(question.options.length).keys()];
+    
+    // Randomize option order if answer random mode is active
+    if (isAnswerRandomMode) {
+        for (let i = optionOrder.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [optionOrder[i], optionOrder[j]] = [optionOrder[j], optionOrder[i]];
+        }
+    }
+    
+    // Map between randomized indices and original indices
+    const indexMap = new Map(optionOrder.map((v, i) => [i, v]));
+    const reverseIndexMap = new Map(optionOrder.map((v, i) => [v, i]));
+    
+    optionOrder.forEach((originalIndex, displayIndex) => {
         const button = document.createElement('div');
         button.className = 'option';
         button.innerHTML = `
-            ${option}
+            ${question.options[originalIndex]}
             <span class="result-icon checkmark">✓</span>
             <span class="result-icon x-mark">✗</span>
         `;
-        button.addEventListener('click', () => selectOption(index));
+        button.addEventListener('click', () => selectOption(displayIndex, reverseIndexMap.get(question.correct)));
         optionsElement.appendChild(button);
     });
 
     nextButton.style.display = 'none';
     retakeButton.style.display = 'none';
+    
+    updateProgress();
 }
 
-function selectOption(index) {
+function selectOption(selectedIndex, correctDisplayIndex) {
     if (questionAnswered) return;
     
     questionAnswered = true;
-    const question = questions[currentQuestion];
     const options = document.querySelectorAll('.option');
-
-    if (index === question.correct) {
-        options[index].classList.add('correct');
+    
+    if (selectedIndex === correctDisplayIndex) {
+        options[selectedIndex].classList.add('correct');
         score++;
     } else {
-        options[index].classList.add('incorrect');
-        options[question.correct].classList.add('correct');
+        options[selectedIndex].classList.add('incorrect');
+        options[correctDisplayIndex].classList.add('correct');
     }
 
-    explanationElement.textContent = question.explanation;
+    const questionIndex = questionOrder[currentQuestion];
+    explanationElement.textContent = questions[questionIndex].explanation;
     explanationElement.style.display = 'block';
     nextButton.style.display = 'block';
 }
@@ -575,6 +722,39 @@ function showFinalScore() {
     retakeButton.style.display = 'block';
 }
 
+function toggleRandomMode() {
+    const toggleButton = document.querySelector('.random-toggle');
+    isRandomMode = !isRandomMode;
+    toggleButton.classList.toggle('active');
+    
+    if (isRandomMode) {
+        // Fisher-Yates shuffle algorithm
+        for (let i = questionOrder.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [questionOrder[i], questionOrder[j]] = [questionOrder[j], questionOrder[i]];
+        }
+    } else {
+        questionOrder = [...Array(questions.length).keys()];
+    }
+    
+    // Reset quiz
+    currentQuestion = 0;
+    score = 0;
+    loadQuestion();
+    updateProgress();
+}
+
+// Add function to toggle answer randomization
+function toggleAnswerRandomMode() {
+    const toggleButton = document.querySelector('.answer-random-toggle');
+    isAnswerRandomMode = !isAnswerRandomMode;
+    toggleButton.classList.toggle('active');
+    
+    // Reload current question with new randomization setting
+    // but don't reset progress
+    loadQuestion();
+}
+
 nextButton.addEventListener('click', () => {
     currentQuestion++;
     if (currentQuestion < questions.length) {
@@ -588,7 +768,11 @@ retakeButton.addEventListener('click', () => {
     currentQuestion = 0;
     score = 0;
     loadQuestion();
+    updateProgress();
 });
+
+document.querySelector('.random-toggle').addEventListener('click', toggleRandomMode);
+document.querySelector('.answer-random-toggle').addEventListener('click', toggleAnswerRandomMode);
 
 loadQuestion();
 </script></body></html>
