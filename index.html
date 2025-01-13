@@ -202,10 +202,10 @@ body {
 <div class="quiz-container">
     <div class="toggle-container">
         <button class="toggle-btn random-toggle">
-            <span class="text">Random Order</span>
+            <span class="text">Randomize Questions</span>
         </button>
         <button class="toggle-btn answer-random-toggle">
-            <span class="text">Random Answers</span>
+            <span class="text">Randomize Answers</span>
         </button>
     </div>
     <div class="progress-circle">
@@ -583,7 +583,176 @@ const questions = [
         options: ["A tone played to add dissonance", "A note that repeats throughout the piece", "A tone that resonates at the end of the track", "A non-chord tone that moves stepwise from a chord tone to an adjacent note then returns to the original chord tone"],
         correct: 3,
         explanation: "A neighbor tone is a note played adjacent to its original chord tone, then returns back to its original chord tone in the next chord. Im just visiting my 'neighbor'!"
+    },
+    {
+        question: "The ideal length for a short bio is ____.",
+        options: ["1 page", "2-3 pages", "2-3 paragraphs", "1 paragraph"],
+        correct: 2,
+        explanation: "2-3 paragraphs is the perfect amount to cover important details in a short bio, such as your brand philosophy, your personal story, and what the future holds for your artist name."
+    },
+    {
+        question: "Which of the following should not be included in the bio?",
+        options: ["Your professional history", "Your tour dates", "Your brand philosophy", "Your personal story"],
+        correct: 1,
+        explanation: "Show events, too much personal info, lengthy backstories, cliches and exaggerations are main topics to avoid in a bio. It's best to keep it simple, professional and captivating for your artist bio."
+    },
+    {
+        question: "What is the role of a promoter?",
+        options: ["To book artists to perform a show", "To promote shows to the public", "To ensure shows run smoothly", "All of the answers"],
+        correct: 3,
+        explanation: "Promoters are considered the 'host' of shows or venues, in which invest and book artists to perform at a show or festival, promote said shows, and ensure everything runs smoothly. Promoters can be in the form of a single individual, or a larger company."
+    },
+    {
+        question: "A booking agent is responsible for ____.",
+        options: ["Signing performance contracts", "Negotiating booking fees", "Pitching artists to promoters", "All of the answers"],
+        correct: 3,
+        explanation: "Booking agents work for artists by signing performance contracts, negotiating booking fees, and pitching their names to promoters to get them on stage."
+    },
+    {
+        question: "Booking agents generally take ____ of the total (gross) booking fee.",
+        options: ["25-30%", "20-25%", "5%", "10-15%"],
+        correct: 3,
+        explanation: "Booking agents generally take 10-15% of the total (gross) booking fee."
+    },
+    {
+        question: "A tech rider is important because it tell the promoter ____.",
+        options: ["What kind of equipment the artist needs to perform", "What kind of food and drinks the artist wants", "How the artist will collect the payment", "What type of transportation the artist prefers"],
+        correct: 0,
+        explanation: "A tech rider is a list responsible for relaying the specific equipement the artist needs in order to perform their best to the promoter of the event. Some of these items could be '4 CDJs' and a 'Towel with a bottle of water'. Some humerous artists love to play games and request rediculous items to see if the promoter(s) are able to retrieve all of the items, such as sex toys, specfic tempature drinks, rare collectables, signed autographs, and even specific people. Since the promoter has invested in the artist to perform at the show, they are obligated to retrieve the requested items, at least -- within reasonable effort."
+    },
+    {
+        question: "How does an artist usually collect their performance fee?",
+        options: ["50% up front, 50% at the night of the show", "50% up front, 50% within 30 days of the show", "100% up front", "100% at the night of the show"],
+        correct: 0,
+        explanation: "Artist are usually given their performance fee 50% up front, and the other 50% at the night of the show."
+    },
+    {
+        question: "What is another name for a performance fee?",
+        options: ["Back-end", "Deposit", "Front-end", "Guarentee"],
+        correct: 3,
+        explanation: "A performance fee is also called a guarentee."
+    },
+    {
+        question: "Some artists recieve ____ training to help them interview better.",
+        options: ["Media", "Journalism", "Spiritual", "Publicity"],
+        correct: 0,
+        explanation: "Some artists recieve meida training to help them interview better, Media training is a process of preparing individuals or organizations to effectively communicate with the media by teaching them how to handle various types of media interactions."
+    },
+    {
+        question: "It's important to have an intersting story so that ____ will want to work with you.",
+        options: ["Promoters", "Booking agents", "Journalists", "Publishers"],
+        correct: 2,
+        explanation: "Journalists keep their eyes open for interesting stories. If your artist story is interesting, you may land an interview with a journalist, spreading the word of your artist philosophy even more."
+    },
+    {
+        question: "The main roloe of a publishing company is to ____.",
+        options: ["Pitch songs to record labels", "Set up writing sessions with songwriters and producers", "Pitch songs to music supervisors", "All of the answers"],
+        correct: 3,
+        explanation: "Publishing companies are large music corporations, pitching songs to record labels, connecting songwriters and producers to make hits, and pitching songs to music supervisors (people in charge of music in media productions such as movies or commercials)."
+    },
+    {
+        question: "There are ____ major music publishing companies in the United States.",
+        options: ["2", "3", "5", "4"],
+        correct: 1,
+        explanation: "There are 3 major music publishing companies in the United States. Universal Music Publishing Group (UMPG)(Also considered the largest), Sony Music Publishing (SMP), and Kobal Music Group (KMG)(Owner of AWAL)."
+    },
+    {
+        question: "When negotiating publishing, songs are often split in half between the ____ and the ____.",
+        options: ["ASCAP and BMI", "Writer and author", "Lyrics and music composition", "Label and publisher"],
+        correct: 2,
+        explanation: "When negotiating publishing, the songs are often split 50/50. One half being the lyrics, and the other half being the music composition (melody, structure, etc)."
+    },
+    {
+        question: "In publishing terms, a 'song' is the ____.",
+        options: ["Lyrics", "Melody", "Music composition", "All of the answers"],
+        correct: 3,
+        explanation: "In publishing terms, the 'song' is broken down into the publishing rights, which are the song's words and music. This is the other half of the entire copyright, from the master copyright, which contains the recording of the song."
+    },
+    {
+        question: "Performing Rights Organizations (PRO) collect ____.",
+        options: ["Mechanical royalties", "Sync fees", "Performance fees", "Performance royalties"],
+        correct: 3,
+        explanation: "Performing Rights Organizations collect performance royalites for artists."
+    },
+    {
+        question: "ASCAP and BMI are both ____.",
+        options: ["Performance Royalty Organizations", "Public Registering Organizations", "Public Royalty Organizations", "Performing Rights Organizations"],
+        correct: 3,
+        explanation: "ASCAP and BMI are both Performing Rights Organizations (PRO) in the United States."
+    },
+    {
+        question: "Which PRO requires signing up as a publisher in order to collect full royalties?",
+        options: ["ASCAP", "SESAC", "BMI", "None of the answers"],
+        correct: 0,
+        explanation: "ASCAP requires individuals or record companies to register as a publisher in order to collect full performance royalties."
+    },
+    {
+        question: "Which PRO values songs at 200%?",
+        options: ["ASCAP", "SESAC", "BMI", "None of the answers"],
+        correct: 2,
+        explanation: "BMI values songs at 200%, as the performance royalties will be split between the record company and the artist, both giving their split greater value."
+    },
+    {
+        question: "If a song were played in a ____, it would be considered a 'public performance'.",
+        options: ["Hotel", "Store", "Restaurant", "All of the answsers"],
+        correct: 3,
+        explanation: "If a song is played to the public, such as a hotel, radio, TV commercial, movie, store, bar or restaurant, then that would be considered a 'public performance'."
+    },
+    {
+        question: "What type of royalties would you collet if your song was played on the radio?",
+        options: ["Sync royalties", "Performance royalties", "Mechanical royalties", "Public royalties"],
+        correct: 1,
+        explanation: "If your song is played to the public by radio, then you are entitled to be payed performance royalties. Even on a TV commercial, you are entitled to be payed the sync fee for the commercial to use your song, and also be payed performance royalties by the Performing Rights Organization, as the commercial is publicly playing your song."
+    },
+    {
+        question: "What type of publishing deals generally take only 15% of collected revenue?",
+        options: ["Minor publishing deals", "Admin deals", "Co-publishing deals", "Major publishing deals"],
+        correct: 1,
+        explanation: "Admin deals (a music publishing deal that allows a songwriter to keep ownership of their copyright while paying a publisher to handle the day-to-day tasks of collecting royalties) generally take only 15% of collected revenue."
+    },
+    {
+        question: "Music licensing companies usually take ____ of the sync fees",
+        options: ["50%", "100%", "15%", "25%"],
+        correct: 0,
+        explanation: "Music licensing companies usually take 50% of the sync fees."
+    },
+    {
+        question: "Record labels usually get ____ of the sync fees",
+        options: ["25%", "15%", "75%", "50%"],
+        correct: 3,
+        explanation: "Record labels usually get 50% of the sync fees."
+    },
+    {
+        question: "If you own 50% of publishing on a song that earns $1,000 from radio royalties, how much of that would you actually recieve?",
+        options: ["$250", "$750", "$125", "$500"],
+        correct: 3,
+        explanation: "If you own 50% of publishing on a song that earns $1,000 from radio royalties, you would recieve $500 of those radio royalites."
+    },
+    {
+        question: "Music libraries are also known as ____ libraries.",
+        options: ["Synchronization", "Supervision", "Production", "Database"],
+        correct: 2,
+        explanation: "Music libaries are a collection of music for music supervisors to use in film. They are also called Production libraries."
+    },
+    {
+        question: "Music libraries are useful to music supervisors because their songs are ____.",
+        options: ["Pre-cleared", "Better", "Free", "Cheaper"],
+        correct: 0,
+        explanation: "Music in music libraries are pre-cleared, so there is no need to get permission to use the songs in their projects."
+    },
+    {
+        question: "Which of these factor(s) directly influences the sync fee that supervisors are willing to pay to license a song?",
+        options: ["The release date of the song", "The length of use", "Genre", "All of the answers"],
+        correct: 1,
+        explanation: "How long the song will be used in film will determine the price the music supervisors are willing to pay to license the song. The longer the song is used, the higher the sync fee will be."
+    },
+    {
+        question: "Some music supervisors are willing to pay more for the benefit of working with ____ music from music libraries.",
+        options: ["Well-recorded", "Non-exclusive", "Pre-cleared", "Exclusive"],
+        correct: 3,
+        explanation: "Some music supervisors will pay a pretty penny for music that can't be used in any other projects, or can't be signed to another company, AKA exclusive music."
     }
+    
 ];
 
 let currentQuestion = 0;
